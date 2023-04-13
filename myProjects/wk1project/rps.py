@@ -1,4 +1,8 @@
+
 #!/usr/bin/python3
+
+import random
+
 
 print("welcome to Rock Paper Scissors")
 username=input("Please enter your name.\n")
@@ -15,4 +19,6 @@ elif player=="s" or player=="S":
 else:
     print("Not a good choice. Please choose R, P or S.")
    
-   
+rpsChoices=["R","P","S"]
+cpuChoice=random.choice(rpsChoices)
+print("The CPU chose!", cpuChoice)
