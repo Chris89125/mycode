@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 
 import random
@@ -17,8 +16,12 @@ elif player=="p" or player=="P":
 elif player=="s" or player=="S":
    print("You chose Scissors!")
 else:
-    print("Not a good choice. Please choose R, P or S.")
+    print("Not a good choice. Next time please choose R, P or S.")
+    exit()
    
-rpsChoices=["R","P","S"]
+rpsChoices=["Rock!","Paper!","Scissors!"]
 cpuChoice=random.choice(rpsChoices)
-print("The CPU chose!", cpuChoice)
+print("The CPU chose ", cpuChoice)
+
+print("Thanks for Playing ",username,"!",sep='')
+
