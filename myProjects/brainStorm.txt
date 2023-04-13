@@ -1,0 +1,9 @@
+Project Ideas
+
+1.mad libs game <--3rd Choice
+
+2.Guess the Number 1-10 <-- 2nd Choice
+
+3.Rock Paper Scissors game <-- perfered game
+
+4. Hangman Game
