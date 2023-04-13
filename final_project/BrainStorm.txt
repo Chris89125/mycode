@@ -1,5 +1,0 @@
-1. Hangman Game
-
-2. MadLibs 
-
-3.Guess the Number 1-10
