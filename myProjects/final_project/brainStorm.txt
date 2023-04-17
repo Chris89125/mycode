@@ -1,9 +1,7 @@
 Project Ideas
 
-1.mad libs game <--3rd Choice
+1.mad libs game <--2nd Choice
 
-2.Guess the Number 1-10 <-- 2nd Choice
+2.Rock Paper Scissors Website using Flask <-- 1st Choice
  
-3. Hangman Game <-- perfered game
-
-4.
+3. Hangman Game <-- 3rd Choice
