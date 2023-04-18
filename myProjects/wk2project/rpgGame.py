@@ -10,7 +10,6 @@ VALID_DIRS = ["D", "U", "E", "W"]
 VALID_ITEMS = ["KEY_CARD", "TERMINAL"]
 
 
-inventory = [] 
 
 def configureRooms():
     """Defining rooms"""
@@ -41,6 +40,9 @@ def show_status(current_room,inventory):
 def main():
     print("in main")
 
+    inventory = [] 
+    current_room="Guard_Room"
+
     print("inventory", inventory)
 
     rooms = configureRooms()
@@ -51,6 +53,7 @@ def main():
         move=""
         while move == "":
             move=input(". > ")
+            valid_move = False
 
             move = move.upper().split(" ",1)
             print( move )
@@ -58,19 +61,41 @@ def main():
                 print("Goodbye Quitter")
                 exit()
 
+            if move[0] in VALID_DIRS:  
+                valid_move = True
+                if move[0] == "D":
+                    if move[0] in rooms[current_room]:
+                        from_room=current_room
+                        current_room=rooms[current_room][move[0]]
+                        print(" You moved from:",from_room,"To:",current_room)
+                    else:   
+                        valid_move = False
+                elif move[0] == "U":
+                    if move[0] in rooms[current_room]:
+                        from_room=current_room
+                        current_room=rooms[current_room][move[0]]
+                        print(" You moved from:",from_room,"To:",current_room)
+                    else:   
+                        valid_move = False
+                elif move[0] == "E":
+                    if move[0] in rooms[current_room]:
+                        from_room=current_room
+                        current_room=rooms[current_room][move[0]]
+                        print(" You moved from:",from_room,"To:",current_room)
+                    else:   
+                        valid_move = False
+                elif move[0] == "W":
+                    if move[0] in rooms[current_room]:
+                        from_room=current_room
+                        current_room=rooms[current_room][move[0]]
+                        print(" You moved from:",from_room,"To:",current_room)
+                    else:   
+                        valid_move = False
+                else:   
+                    print("Invalid Move")
 
-            if move[0] == "D":
-                print("You Move dowm to the next room")
-            
-            if move[0] == "U":
-                print("You Move up to the next room")
-
-            if move[0] == "W":
-                print("You Move West to the next room")
-
-            if move[0] == "E":
-                print("You Move East to the next room")
-                
+                if not valid_move:
+                    print("Invalid Move")
                 
 
 if __name__ == "__main__":
