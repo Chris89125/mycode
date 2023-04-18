@@ -1,0 +1,31 @@
+TLG Week 2 Projects
+
+Single Player 
+
+3 Rooms on a mitary base.
+	RM 1- Entry way room
+	RM 2- Science Lab
+	Rm 3- Pump Room
+
+2 Enemy types:
+	Large Rat- 2 HP
+	Other monster- 4 HP
+
+Player actions:
+	Choose player skill points total: 3
+		Intelligence
+		Strength
+		Endurance
+
+
+Base Player stats
+	Carry weight: 50lbs
+	Combat Knife attack damage: 50% chance to hit enemy- melee hit distance max=1m
+	Fire Axe attack damage: 50% chance to hit enemy- melee hit distance max=2m
+	M1911 pistol attack damage: 50% chance to hit enemy
+	AK-47 Rifle attack damage: 50% chance to hit enemy
+	Hack skill
+	Health
+
+Player Inventory: Carry weight limit max 
+	
