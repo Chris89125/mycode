@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Role Playing game week 2 project"""
 
-import random
+import crayons
 
 """Global Variables to help validate logic"""
 VALID_ROOMS = ["GUARD_ROOM", "SCIENCE_LAB", "PUMP_ROOM", "ARMORY" ]
@@ -35,7 +35,7 @@ def configureRooms():
 def show_status(rooms,current_room,inventory):
     """Display possiable player moves"""
     print(" Current Room:",current_room)
-   # print("   From here you can ",rooms[current_room])
+    print(" -------------------------")
 
     print("   From here you can type...")
     if "U" in rooms[current_room]:
@@ -48,22 +48,35 @@ def show_status(rooms,current_room,inventory):
         print("    W to go to the",rooms[current_room]["W"])
 
     if current_room=="Armory":
-        print("You found the missing villager")
-        print("You Win, Game Over!")
+        print()
+        print(crayons.yellow("****************************************"))
+        print(crayons.yellow("  You found Hutch, he is alive and well!"))
+        print(crayons.yellow("  Congrats, Game Over!"))
+        print(crayons.yellow("****************************************"))
+        print()
         exit()
 
 
 def main():
-    print("in main")
+    print()
+    print(crayons.blue(" The year is 2056 and earth has been utterly annihilated in a sea of nuclear fire. You are a guard of the small village of Ark. One day your best friend Hutch went out to scavenge for supplies in a nearby Military base and never returned. It is up to you to enter the base and find him."))
+    print()
+    print("You enter the Guard Room to begin your search.")
 
+    print(crayons.green(" Press 'U' to go Up a Room or 'D' to go Down a room,\n Press 'E' to go East and 'W' to go West, Press 'Q' to Quit"))
+
+    print("  From here you can type...\n    D to go to the Science_Lab")
+
+    """initalize inventory var"""
     inventory = [] 
 
     """Player Spawns in the Guard Room"""
     current_room="Guard_Room"
 
+
     """Set up the base room config"""
     rooms = configureRooms()
-    print("rooms", rooms)
+   # print("rooms", rooms)
 
     while True:
 
@@ -73,9 +86,10 @@ def main():
             valid_move = False
 
             move = move.upper().split(" ",1)
-            print( move )
+            #print( move )
             if move[0] == "Q": 
-                print("You Quit like a Quitter")
+                print(crayons.red("You Quit, Hutch will surely parish."))
+                print()
                 exit()
 
             if move[0] in VALID_DIRS:  
@@ -109,12 +123,12 @@ def main():
                     else:   
                         valid_move = False
                 else:   
-                    print("Invalid Move")
+                    print(crayons.red("Invalid Move"))
 
                 if valid_move:
                     show_status(rooms,current_room,inventory)
                 else:
-                    print("Invalid Move")
+                    print(crayons.red("Invalid Move"))
                 
 
 if __name__ == "__main__":
