@@ -3,7 +3,7 @@
 
 import random
 
-
+"""Global Variables to help validate logic"""
 VALID_ROOMS = ["GUARD_ROOM", "SCIENCE_LAB", "PUMP_ROOM", "ARMORY" ]
 VALID_CMDS = ["I", "LOOK", "Q"]
 VALID_DIRS = ["D", "U", "E", "W"]
@@ -32,19 +32,36 @@ def configureRooms():
         }
     return rooms
 
-def show_status(current_room,inventory):
-    print(current_room)
-    print(inventory)
+def show_status(rooms,current_room,inventory):
+    """Display possiable player moves"""
+    print(" Current Room:",current_room)
+   # print("   From here you can ",rooms[current_room])
+
+    print("   From here you can type...")
+    if "U" in rooms[current_room]:
+        print("    U to go to the",rooms[current_room]["U"])
+    if "D" in rooms[current_room]:
+        print("    D to go to the",rooms[current_room]["D"])
+    if "E" in rooms[current_room]:
+        print("    E to go to the",rooms[current_room]["E"])
+    if "W" in rooms[current_room]:
+        print("    W to go to the",rooms[current_room]["W"])
+
+    if current_room=="Armory":
+        print("You found the missing villager")
+        print("You Win, Game Over!")
+        exit()
 
 
 def main():
     print("in main")
 
     inventory = [] 
+
+    """Player Spawns in the Guard Room"""
     current_room="Guard_Room"
 
-    print("inventory", inventory)
-
+    """Set up the base room config"""
     rooms = configureRooms()
     print("rooms", rooms)
 
@@ -58,7 +75,7 @@ def main():
             move = move.upper().split(" ",1)
             print( move )
             if move[0] == "Q": 
-                print("Goodbye Quitter")
+                print("You Quit like a Quitter")
                 exit()
 
             if move[0] in VALID_DIRS:  
@@ -94,7 +111,9 @@ def main():
                 else:   
                     print("Invalid Move")
 
-                if not valid_move:
+                if valid_move:
+                    show_status(rooms,current_room,inventory)
+                else:
                     print("Invalid Move")
                 
 
