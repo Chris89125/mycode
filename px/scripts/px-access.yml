@@ -1,0 +1,71 @@
+---
+- name: "Copy Public Keys"
+  hosts: raiders,planetexpress,!farnsworth
+  connection: ssh 
+  gather_facts: no
+  become: yes 
+
+  vars:
+    ansible_ssh_pass: alta3
+
+  tasks:
+  - name: Set authorized key taken from file
+    authorized_key:
+      user: "{{ ansible_user }}"
+      state: present
+      key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    tags:
+     - keys
+
+- name: Put dns and ssh in correct state
+  hosts: localhost
+  tasks:
+
+  - name: update etc hosts
+    blockinfile:
+      path: /etc/hosts
+      insertbefore: BOF 
+      block: |
+        10.10.2.2 indy
+        10.10.2.3 bender
+        10.10.2.4 fry 
+        10.10.2.5 zoidberg
+        10.10.2.6 farnsworth
+    become: True
+
+  - name: update student ssh config
+    blockinfile:
+      path: /home/student/.ssh/config
+      insertafter: EOF 
+      block: |
+        Host indy
+          Hostname indy
+          user indy
+          IdentityFile ~/.ssh/id_rsa
+          StrictHostKeyChecking no
+          UserKnownHostsFile=/dev/null
+        Host bender
+          Hostname bender
+          user bender
+          IdentityFile ~/.ssh/id_rsa
+          StrictHostKeyChecking no
+          UserKnownHostsFile=/dev/null
+        Host fry
+          Hostname fry
+          user fry
+          IdentityFile ~/.ssh/id_rsa
+          StrictHostKeyChecking no
+          UserKnownHostsFile=/dev/null
+        Host zoidberg
+          Hostname zoidberg
+          user zoidberg
+          IdentityFile ~/.ssh/id_rsa
+          StrictHostKeyChecking no
+          UserKnownHostsFile=/dev/null
+        Host farnsworth
+          Hostname farnsworth
+          user farnsworth
+          IdentityFile ~/.ssh/id_rsa
+          StrictHostKeyChecking no
+          UserKnownHostsFile=/dev/null
+    become: True

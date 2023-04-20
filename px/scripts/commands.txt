@@ -1,0 +1,25 @@
+### Build containers
+### DEPRECATED  sudo docker build -q --build-arg user=fry    --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --tag fry:22.04        $HOME/.config/dockerfiles/ansible/key
+
+### Run containers
+sudo docker run -d  --name fry         -h fry        --ip 10.10.2.4 --network ansible-net fry:22.04
+
+
+### teardown containers
+bash ~/px/scripts/teardown.sh
+
+### setup px containers
+bash ~/px/scripts/full-setup.sh
+
+git clone https://gitlab.com/alta3/planetexpress.git ~/px
+
+### stop and remove all containers with exited status
+sudo docker rm $(sudo docker ps -a -f status=exited -q)
+
+
+### stop and rm all containers
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
+### remove all images
+sudo docker rmi $(sudo docker images -a -q)
