@@ -1,7 +1,3 @@
-Project Ideas
+Creating a Madlibs website with flask.
 
-1.mad libs game <--2nd Choice
 
-2.Rock Paper Scissors Website using Flask <-- 1st Choice
- 
-3. Hangman Game <-- 3rd Choice
