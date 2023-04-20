@@ -56,7 +56,7 @@ def show_status(rooms,current_room,inventory):
         print()
         exit()
 
-
+"""main protion of the game logic"""
 def main():
     print()
     print(crayons.blue(" The year is 2056 and earth has been utterly annihilated in a sea of nuclear fire. You are a guard of the small village of Ark. One day your best friend Hutch went out to scavenge for supplies in a nearby Military base and never returned. It is up to you to enter the base and find him."))
@@ -67,7 +67,7 @@ def main():
 
     print("  From here you can type...\n    D to go to the Science_Lab")
 
-    """initalize inventory var"""
+    """initalize inventory var, in future will be used to hold items player finds"""
     inventory = [] 
 
     """Player Spawns in the Guard Room"""
@@ -79,12 +79,13 @@ def main():
    # print("rooms", rooms)
 
     while True:
-
+        """set move var for use to control loop"""
         move=""
         while move == "":
             move=input(". > ")
             valid_move = False
 
+            """ split user input, command from the target. i.e 'get' 'item' """
             move = move.upper().split(" ",1)
             #print( move )
             if move[0] == "Q": 
