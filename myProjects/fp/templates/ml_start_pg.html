@@ -12,14 +12,15 @@
 	<title>Welcome to Mad Libs</title>		
 	<h2>Please fill in the following Box with there respective word.</h2>	
 		
-	<form>
-		<h3>Please enter a verb ending in ‘ing’:    <input type = "text" name="V1"/></h3>
-		<h3>Please enter a verb:		    <input type = "text" name="V2"/></h3>
-		<h3>Please enter an adverb:		    <input type = "text" name="ADV1"/></h3>
-		<h3>Please enter a noun:		    <input type = "text" name="N1"/></h3>
+	<form action="/ml_result_pg/results" method="POST">
+		<h3>Please enter a verb ending in ‘ing’:    <input type = "text" name="v1"/></h3>
+		<h3>Please enter a verb:		    <input type = "text" name="v2"/></h3>
+		<h3>Please enter an adverb:		    <input type = "text" name="adv1"/></h3>
+		<h3>Please enter a noun:		    <input type = "text" name="n1"/></h3>
 		
 		
 		When you're done, hit submit: <input type ="submit" value="Submit!"/>
+
 	</form>
 	</body>
 </html>
